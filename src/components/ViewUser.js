@@ -3,12 +3,7 @@ import UserTable from './tables/UserTable';
 
 class ViewUser extends Component {
     render() {
-        const users = [
-            {
-                name:'Thomas',
-                username:'yweelon'
-            }
-        ]
+        const {users} = this.props;
         return (
             <div className='divViewUser'>
                  <h1>View Users</h1> 
