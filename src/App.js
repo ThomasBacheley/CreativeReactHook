@@ -13,7 +13,8 @@ const App = () => {
   };
 
   const addUser = (user) => {
-    user.id = users.length + 1;
+    user.id = users.length + 1; // utile pour l'edit et le delete + s'incremente auto donc dans une liste on peut
+    //lui foutre une key = user.id
     setUsers([...users, user]);
   };
 
@@ -21,8 +22,12 @@ const App = () => {
     <div className="App">
       <h1>CRUD App with Hooks</h1>
       <div className="mainDiv">
-        <AddForm addUser={addUser}></AddForm>
-        <div>
+        <div className="divAddForm">
+          <h1>Add User</h1>
+          <AddForm addUser={addUser}></AddForm> {/* on peut passer des methodes au props */}
+        </div>
+
+        <div className="divViewUser">
           <h1>View Users</h1>
           <UserTable deleteUser={deleteUser} users={users}></UserTable>
         </div>
