@@ -1,10 +1,5 @@
-import { Component } from 'react'
-
-class UserTable extends Component {
-    render() {
-        const {users} = this.props;
-        return (
-          <div className='divUserTable'>
+const UserTable = (props) => (
+    <div className='divUserTable'>
             <table>
                 <thead>
                     <tr>
@@ -14,21 +9,19 @@ class UserTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map(user=>(
+                    {props.users.map(user=>(
                         <tr>
                             <td>{user.name}</td>
                             <td>{user.username}</td>
                             <td >
                                 <button style={{margin:'10px'}}>Edit</button>
-                                <button style={{margin:'10px'}}>Delete</button>
+                                <button onClick={()=>{props.deleteUser(user.id)}} style={{margin:'10px'}}>Delete</button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
           </div>
-        )
-    }
-}
+)
 
 export default UserTable
